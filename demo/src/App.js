@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Offline, Online, Detector } from "react-detect-offline";
+import { Offline, Online, Detector } from "./Component";
 import "./App.css";
 
 class App extends Component {
@@ -13,8 +13,24 @@ class App extends Component {
             </div>
           )}
         />
-        <Online>Online Component</Online>
-        <Offline polling={{ enabled: true, interval: 2000, timeout: 1000 }}>
+        <Online
+          polling={{
+            enabled: true,
+            urls: [
+              "https://riffraff-beta.indiciummobile.com/account/subdomain/josh-beta"
+            ]
+          }}
+        >
+          Online Component
+        </Online>
+        <Offline
+          polling={{
+            enabled: true,
+            urls: [
+              "https://riffraff-beta.indiciummobile.com/account/subdomain/josh-beta"
+            ]
+          }}
+        >
           Offline Component with custom polling
         </Offline>
       </div>
