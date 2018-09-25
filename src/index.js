@@ -1,6 +1,6 @@
+import "@babel/polyfill";
 import { Component, isValidElement, Children, createElement } from "react";
 import PropTypes from "prop-types";
-import "@babel/polyfill";
 const inBrowser = typeof navigator !== "undefined";
 
 // these browsers don't fully support navigator.onLine, so we need to use a polling backup
