@@ -23,6 +23,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
 var inBrowser = typeof navigator !== "undefined";
 
 // these browsers don't fully support navigator.onLine, so we need to use a polling backup
@@ -55,43 +57,107 @@ var ping = function ping(_ref) {
   });
 };
 
-var pingAllUrls = async function pingAllUrls(_ref2) {
-  var urls = _ref2.urls,
-      timeout = _ref2.timeout;
-  var _iteratorNormalCompletion = true;
-  var _didIteratorError = false;
-  var _iteratorError = undefined;
+var pingAllUrls = function () {
+  var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(_ref2) {
+    var urls = _ref2.urls,
+        timeout = _ref2.timeout;
 
-  try {
-    for (var _iterator = urls[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-      var url = _step.value;
+    var _iteratorNormalCompletion, _didIteratorError, _iteratorError, _iterator, _step, url, result;
 
-      try {
-        var result = await ping({ url: url, timeout: timeout });
-        if (result === true) {
-          return result;
+    return regeneratorRuntime.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            _iteratorNormalCompletion = true;
+            _didIteratorError = false;
+            _iteratorError = undefined;
+            _context.prev = 3;
+            _iterator = urls[Symbol.iterator]();
+
+          case 5:
+            if (_iteratorNormalCompletion = (_step = _iterator.next()).done) {
+              _context.next = 21;
+              break;
+            }
+
+            url = _step.value;
+            _context.prev = 7;
+            _context.next = 10;
+            return ping({ url: url, timeout: timeout });
+
+          case 10:
+            result = _context.sent;
+
+            if (!(result === true)) {
+              _context.next = 13;
+              break;
+            }
+
+            return _context.abrupt("return", result);
+
+          case 13:
+            _context.next = 18;
+            break;
+
+          case 15:
+            _context.prev = 15;
+            _context.t0 = _context["catch"](7);
+            return _context.abrupt("return", false);
+
+          case 18:
+            _iteratorNormalCompletion = true;
+            _context.next = 5;
+            break;
+
+          case 21:
+            _context.next = 27;
+            break;
+
+          case 23:
+            _context.prev = 23;
+            _context.t1 = _context["catch"](3);
+            _didIteratorError = true;
+            _iteratorError = _context.t1;
+
+          case 27:
+            _context.prev = 27;
+            _context.prev = 28;
+
+            if (!_iteratorNormalCompletion && _iterator.return) {
+              _iterator.return();
+            }
+
+          case 30:
+            _context.prev = 30;
+
+            if (!_didIteratorError) {
+              _context.next = 33;
+              break;
+            }
+
+            throw _iteratorError;
+
+          case 33:
+            return _context.finish(30);
+
+          case 34:
+            return _context.finish(27);
+
+          case 35:
+            return _context.abrupt("return", false);
+
+          case 36:
+          case "end":
+            return _context.stop();
         }
-      } catch (err) {
-        return false;
       }
-    }
-  } catch (err) {
-    _didIteratorError = true;
-    _iteratorError = err;
-  } finally {
-    try {
-      if (!_iteratorNormalCompletion && _iterator.return) {
-        _iterator.return();
-      }
-    } finally {
-      if (_didIteratorError) {
-        throw _iteratorError;
-      }
-    }
-  }
+    }, _callee, undefined, [[3, 23, 27, 35], [7, 15], [28,, 30, 34]]);
+  }));
 
-  return false;
-};
+  return function pingAllUrls(_x) {
+    return _ref3.apply(this, arguments);
+  };
+}();
 
 var propTypes = {
   children: _propTypes2.default.node,
