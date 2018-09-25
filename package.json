@@ -3,10 +3,6 @@
   "version": "2.1.2",
   "description": "Offline and Online components for React",
   "main": "dist/index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/APPrise-Mobile/react-detect-offline.git#apprise"
-  },
   "author": "Chris Bolin",
   "license": "MIT",
   "devDependencies": {
