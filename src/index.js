@@ -61,7 +61,11 @@ const defaultProps = {
 
 const defaultPollingConfig = {
   enabled: inBrowser && unsupportedUserAgentsPattern.test(navigator.userAgent),
-  urls: ["https://ipv4.icanhazip.com/"],
+  urls: [
+    "https://heartbeat1.indiciummobile.com",
+    "https://heartbeat2.indiciummobile.com",
+    "https://heartbeat3.indiciummobile.com"
+  ],
   timeout: 5000,
   interval: 5000
 };
