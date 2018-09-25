@@ -9,7 +9,6 @@
     "babel-cli": "^6.26.0",
     "babel-eslint": "^9.0.0",
     "babel-jest": "^23.6.0",
-    "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "enzyme": "^3.6.0",
@@ -60,5 +59,8 @@
         "statements": 100
       }
     }
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.0.0"
   }
 }
